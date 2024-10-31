@@ -8,9 +8,11 @@ import java.util.Optional;
 
 public interface ProdutoRepository extends Repository<Produto, Long> {
 
-    Produto save(Produto Produto);
+    void save(Produto Produto);
 
     Optional<Produto> findById(long id);
 
     List<Produto> findAll();
+
+    void deleteById(long id);
 }

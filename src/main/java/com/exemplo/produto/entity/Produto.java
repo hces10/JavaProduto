@@ -9,14 +9,11 @@ public class Produto {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = true, unique = true)
     private String nome;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private double preco;
-
-    public Produto(String nome, double preco) {
-    }
 
 
     public Long getId() {
