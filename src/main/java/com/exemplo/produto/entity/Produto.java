@@ -3,6 +3,7 @@ package com.exemplo.produto.entity;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "produto")
 public class Produto {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -13,6 +14,9 @@ public class Produto {
 
     @Column(nullable = false)
     private double preco;
+
+    public Produto(String nome, double preco) {
+    }
 
 
     public Long getId() {
