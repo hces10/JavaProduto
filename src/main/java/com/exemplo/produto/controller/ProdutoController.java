@@ -32,4 +32,9 @@ public class ProdutoController {
         produtoService.deletarProduto(id);
         return new ResponseEntity("Produto deletado com sucesso", HttpStatus.OK);
     }
+
+    @GetMapping("/produtos")
+    public ResponseEntity listarProdutosPrecoMaior(@RequestParam long precoMinimo) {
+        return new ResponseEntity(produtoService.listarProdutosPrecoMaior(precoMinimo), HttpStatus.OK);
+    }
 }

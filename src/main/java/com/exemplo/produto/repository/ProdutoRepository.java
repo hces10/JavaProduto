@@ -10,7 +10,7 @@ public interface ProdutoRepository extends Repository<Produto, Long> {
 
     void save(Produto Produto);
 
-    Optional<Produto> findById(long id);
+    List<Produto> findByPrecoGreaterThan(long id);
 
     List<Produto> findAll();
 

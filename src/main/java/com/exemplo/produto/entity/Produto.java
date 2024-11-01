@@ -12,7 +12,6 @@ public class Produto {
     @Column(nullable = false, unique = true)
     private String nome;
 
-
     @Column(nullable = false)
     private double preco;
 
