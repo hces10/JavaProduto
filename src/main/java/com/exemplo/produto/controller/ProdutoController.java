@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class ProdutoController {
     @Autowired
@@ -34,7 +36,13 @@ public class ProdutoController {
     }
 
     @GetMapping("/produtos")
-    public ResponseEntity listarProdutosPrecoMaior(@RequestParam long precoMinimo) {
-        return new ResponseEntity(produtoService.listarProdutosPrecoMaior(precoMinimo), HttpStatus.OK);
+    public ResponseEntity listarProdutosPrecoMaior(
+            @RequestParam long precoMinimo,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "3") int size,
+            @RequestParam(required = false) String order
+    ) {
+        List<Produto> produtos = produtoService.listarProdutosPaginados(precoMinimo, page, size, order);
+        return new ResponseEntity(produtos, HttpStatus.OK);
     }
 }
