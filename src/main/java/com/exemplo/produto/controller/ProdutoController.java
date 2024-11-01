@@ -14,8 +14,12 @@ public class ProdutoController {
 
     @PostMapping("/adicionarProduto")
     public ResponseEntity adicionarProduto(@RequestBody Produto produto) {
-        produtoService.adicionarProduto(produto);
-        return new ResponseEntity("Produto adicionado com sucesso", HttpStatus.CREATED);
+        try {
+            produtoService.adicionarProduto(produto);
+            return new ResponseEntity("Produto adicionado com sucesso", HttpStatus.CREATED);
+        } catch (IllegalArgumentException e) {
+            return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
     }
 
     @GetMapping("/listarProdutos")

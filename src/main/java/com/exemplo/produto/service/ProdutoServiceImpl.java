@@ -13,6 +13,9 @@ public class ProdutoServiceImpl implements ProdutoService {
     ProdutoRepository produtoRepository;
 
     public void adicionarProduto(Produto produto) {
+        if (produto.getPreco() <= 1) {
+            throw new IllegalArgumentException("O preço do produto deve ser maior que 1");
+        }
         produtoRepository.save(produto);
     }
 
