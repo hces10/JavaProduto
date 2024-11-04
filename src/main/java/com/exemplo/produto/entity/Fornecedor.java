@@ -1,23 +1,17 @@
 package com.exemplo.produto.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "produto")
-public class Produto {
+@Table(name = "fornecedor")
+public class Fornecedor {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(unique = true)
     @NotNull
     private String nome;
-
-    @Column()
-    @Min(1)
-    private double preco;
 
     public Long getId() {
         return id;
@@ -33,13 +27,5 @@ public class Produto {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public double getPreco() {
-        return preco;
-    }
-
-    public void setPreco(double preco) {
-        this.preco = preco;
     }
 }

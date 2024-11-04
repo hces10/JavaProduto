@@ -2,6 +2,7 @@ package com.exemplo.produto.controller;
 
 import com.exemplo.produto.entity.Produto;
 import com.exemplo.produto.service.ProdutoService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,7 +31,7 @@ public class ProdutoController {
     }
 
     @DeleteMapping("/deletarProduto/{id}")
-    public ResponseEntity deletarProduto(@PathVariable long id) {
+    public ResponseEntity deletarProduto(@Valid @PathVariable long id) {
         produtoService.deletarProduto(id);
         return new ResponseEntity("Produto deletado com sucesso", HttpStatus.OK);
     }
