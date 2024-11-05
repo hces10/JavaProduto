@@ -19,6 +19,10 @@ public class Produto {
     @Min(1)
     private double preco;
 
+    @ManyToOne
+    @JoinColumn(name = "categoria_id")
+    private Categoria categoria;
+
     public Long getId() {
         return id;
     }

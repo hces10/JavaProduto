@@ -5,7 +5,6 @@ import com.exemplo.produto.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.Comparator;
@@ -20,7 +19,6 @@ public class ProdutoServiceImpl implements ProdutoService {
         produtoRepository.save(produto);
     }
 
-    @Override
     public List<Produto> listarProdutos() {
         return produtoRepository.findAll();
     }

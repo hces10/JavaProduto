@@ -1,5 +1,7 @@
 package com.exemplo.produto.entity;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
@@ -12,6 +14,9 @@ public class Categoria {
 
     @NotNull
     private String nome;
+
+    @OneToMany(mappedBy = "categoria")
+    private List<Produto> produtos;
 
     public Long getId() {
         return id;
